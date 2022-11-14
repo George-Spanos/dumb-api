@@ -2,7 +2,10 @@ module github.com/George-Spanos/learn-go-web
 
 go 1.19
 
-require github.com/gin-gonic/gin v1.8.1
+require (
+	github.com/George-Spanos/gs_greeter v0.4.0
+	github.com/gin-gonic/gin v1.8.1
+)
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
