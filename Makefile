@@ -1,4 +1,6 @@
-build: 
+deps:
+	go mod tidy
+build: deps
 	go build -o bin/
 	cp -r static bin/static
 clean:
