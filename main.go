@@ -3,7 +3,6 @@ package main
 import (
 	"net/http"
 
-	gsgreeter "github.com/George-Spanos/gs_greeter"
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,9 +11,9 @@ func main() {
 }
 func run() {
 	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
+	r.GET("/greet", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"message": gsgreeter.Greet("George"),
+			"message": "Hello stranger",
 		})
 	})
 	r.GET("/", func(ctx *gin.Context) {
