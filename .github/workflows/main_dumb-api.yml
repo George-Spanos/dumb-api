@@ -22,7 +22,6 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v1
       with:
-        registry: https://index.docker.io/v1/
         username: ${{ secrets.AzureAppService_ContainerUsername_bad20a5ebf1b490ab9bf6d7b7090f3b9 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_f9ce83231c2e4dfdaba0009bd3e05b3a }}
 
@@ -30,7 +29,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bad20a5ebf1b490ab9bf6d7b7090f3b9 }}/docker.io/georgespanos/dumb-api:${{ github.sha }}
+        tags: ${{ secrets.AzureAppService_ContainerUsername_bad20a5ebf1b490ab9bf6d7b7090f3b9 }}/dumb-api:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +47,4 @@ jobs:
         app-name: 'dumb-api'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_67566e331045492ab1ed13f736cd6059 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bad20a5ebf1b490ab9bf6d7b7090f3b9 }}/docker.io/georgespanos/dumb-api:${{ github.sha }}'
+        images: '${{ secrets.AzureAppService_ContainerUsername_bad20a5ebf1b490ab9bf6d7b7090f3b9 }}/dumb-api:${{ github.sha }}'
