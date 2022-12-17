@@ -15,7 +15,7 @@ func run() {
 	r.Use(cors.Default())
 	r.GET("/greet", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"message": "Hello stranger from dockerhub",
+			"message": "Hello stranger from dockerhub!!!!!!",
 		})
 	})
 	r.GET("/", func(ctx *gin.Context) {
