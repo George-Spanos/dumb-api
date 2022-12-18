@@ -2,6 +2,8 @@ package main
 
 import (
 	"net/http"
+	"os"
+	"text/template"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -13,6 +15,7 @@ func main() {
 func run() {
 	r := gin.Default()
 	r.Use(cors.Default())
+	r.SetFuncMap(template.FuncMap{"pid": os.Getpid()})
 	r.GET("/greet", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "Hello stranger from dockerhub!!!!!!",
